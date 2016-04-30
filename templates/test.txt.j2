@@ -1,0 +1,6 @@
+
+
+{% for host in groups.zookservers %}
+server.{{ hostvars[host].node }}={{ hostvars[host].ansible_ssh_host }}:2888:3888
+{% endfor %}
+

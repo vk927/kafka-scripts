@@ -1,0 +1,14 @@
+---
+
+- hosts: kafkabrokers 
+
+  tasks:
+  - name: downlaod kafka
+    get_url: url=http://apache.cs.utah.edu/kafka/0.9.0.0/kafka_2.11-0.9.0.0.tgz  dest=~
+
+  - name: unarchive the kafka file
+    unarchive: src=kafka_2.11-0.9.0.0.tgz dest=~ copy=no mode=755 
+  
+  - name: move server.properties file to use dyanmic zookeeper
+    template: src=templates/server.properties.j2 dest=~/kafka_2.11-0.9.0.0/config/server.properties mode=755
+

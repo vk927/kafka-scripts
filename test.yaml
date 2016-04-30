@@ -1,0 +1,7 @@
+---
+
+- hosts: kafkaservers
+  
+  tasks:
+  - file: path=~/testxyz state=directory
+    

@@ -1,0 +1,8 @@
+---
+
+- hosts: zookservers
+
+  tasks:
+  - name: start zookeepers
+
+    command: "~/zookeeper-3.4.8/bin/zkServer.sh start"

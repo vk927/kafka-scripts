@@ -1,0 +1,24 @@
+zook1 ansible_ssh_host=172.30.0.149 node=1
+zook2 ansible_ssh_host=172.30.0.153 node=2
+zook3 ansible_ssh_host=172.30.0.152 node=3
+
+kafka1 ansible_ssh_host=172.30.0.151 node=1
+kafka2 ansible_ssh_host=172.30.0.150 node=2
+kafka3 ansible_ssh_host=172.30.0.154 node=3
+
+[kafkabrokers]
+kafka1
+kafka2
+kafka3
+
+
+[zookservers]
+zook1
+zook2
+zook3
+
+
+[kafkaservers:children]
+kafkabrokers
+zookservers
+
